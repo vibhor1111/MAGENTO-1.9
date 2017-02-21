@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Excellence_Test>
+            <!-- <version>0.1.0</version> -->
+            <version>0.4.0</version>
+        </Excellence_Test>
+    </modules>
+    <frontend>
+        <routers>
+            <test>
+                <use>standard</use>
+                <args>
+                    <module>Excellence_Test</module>
+                    <frontName>test</frontName>
+                </args>
+            </test>
+        </routers>
+        <layout>  <!-- New Section Added -->
+            <updates>
+                <test>
+                    <file>test.xml</file> <!-- This is name of the layout file for this module -->
+                </test>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <test>
+                <class>Excellence_Test_Block</class>
+            </test>
+        </blocks>
+        <helpers>
+            <test>
+                <class>Excellence_Test_Helper</class>
+            </test>
+        </helpers>
+    </global>
+
+   <!--Added for database-->
+   <global>
+    <models>
+        <test>
+            <class>Excellence_Test_Model</class> <!-- Location of all model class files -->
+            <resourceModel>test_mysql4</resourceModel> <!-- Location of resource model -->
+        </test>
+        <test_mysql4>
+            <class>Excellence_Test_Model_Mysql4</class>
+            <entities>
+                <model1>
+                    <table>user</table>  <!-- Actual table name in sql  -->
+                </model1>
+                <model2> 
+                    <table>user_2</table>
+                </model2>
+            </entities>
+        </test_mysql4>
+    </models>
+    <resources>  <!-- These are resource setting giving access to module, read/write permission on database -->
+        <test_setup>
+            <setup>
+                <module>Excellence_Test</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </test_setup>
+        <test_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </test_write>
+        <test_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </test_read>
+    </resources>
+ </global>
+ <!--xxxxxxxxxxxxxxxxxxxxxx-->
+</config>
