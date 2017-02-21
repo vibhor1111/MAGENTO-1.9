@@ -1,0 +1,187 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<br />
+<div id="main-div">
+<div id="left-div">
+<h3 id="heading"><center>Enter all fields to Add data</center></h3>
+<form role="form" action="<?php echo $this->getUrl('test/user_view/save'); ?>" method="post">
+ <div id="form_div">
+  <label id="test_id_label" style="display:none;">Test_Id</label>
+  <input id="test_id" type="text" name="testid" style="display:none;" />
+  <br /><br />
+  <label>Title</label>
+  <input id="title" type="text" name="title" />
+  <br /><br />
+  <label>File Name</label>
+  <input id="file_name" type="text" name="filename" />
+  <br /><br />
+  <label>Content</label>
+  <input id="content" type="text" name="content" />
+  <br /><br />
+  <label>Status</label>
+  <input id="status" type="text" name="status" />
+  <br /><br />
+  <input id="add_button" type="submit" value="Add" disabled="disabled" />
+  <input type="button" class="edit" value="Edit" style="cursor:pointer;" />
+ </div>
+ <br /><br />
+</form>
+ <table border="">
+  <tr>
+   <th>Test_Id</th>
+   <th>Title</th>
+   <th>File Name</th>
+   <th>Content</th>
+   <th>Status</th>
+   <th>Created Time</th>
+   <th>Updated Time</th>
+   <!-- <th>Edit</th> -->
+   <th>Delete</th>
+  </tr>
+ <?php
+ $model = Mage::getModel('test/test')->getCollection();
+ foreach($model as $data)
+  {
+    echo '<tr>';
+    echo '<td>'.$data->getTestId().'</td>';
+    echo '<td>'.$data->getTitle().'</td>';
+    echo '<td>'.$data->getFilename().'</td>';
+    echo '<td>'.$data->getContent().'</td>';
+    echo '<td>'.$data->getStatus().'</td>';
+    echo '<td>'.$data->getCreatedTime().'</td>';
+    echo '<td>'.$data->getUpdateTime().'</td>';
+    ?>
+     <!--  <td><a class="edit" style="cursor:pointer;">Edit</a></td> -->
+      <td><a href='?id=<?php echo $data->getTestId() ?>'>Delete</a></td>
+    <?php
+     echo '</tr>';
+   }
+ ?>
+ </table>
+ </div>
+
+ <!--===================================Added second table here===================================-->
+ <div id="right-div">
+ <h3 id="heading2"><center>Enter all fields to Add data in second table</center></h3>
+ <form role="form" action="<?php echo $this->getUrl('test/user_view/save2'); ?>" method="post">
+  <div id="form_div">
+   <label id="test_id_label2" style="display:none;">Test_Id</label>
+   <input id="test_id2" type="text" name="testid" style="display:none;" />
+   <br /><br />
+   <label>Title</label>
+   <input id="title2" type="text" name="title" />
+   <br /><br />
+    <label>File Name</label>
+   <input id="file_name2" type="text" name="filename" />
+   <br /><br />
+   <label>Content</label>
+   <input id="content2" type="text" name="content" />
+   <br /><br />
+   <label>Status</label>
+   <input id="status2" type="text" name="status" />
+   <br /><br />
+   <input id="add_button2" type="submit" value="Add" disabled="disabled" />
+   <input type="button" class="edit2" value="Edit" style="cursor:pointer;" />
+  </div>
+  <br /><br />
+ </form>
+ <table border="">
+  <tr>
+   <th>Test_Id</th>
+   <th>Title</th>
+   <th>File Name</th>
+   <th>Content</th>
+   <th>Status</th>
+   <th>Created Time</th>
+   <th>Updated Time</th>
+   <!-- <th>Edit</th> -->
+   <th>Delete</th>
+  </tr>
+ <?php
+ $model = Mage::getModel('test/test2')->getCollection();
+ foreach($model as $data)
+  {
+    echo '<tr>';
+    echo '<td>'.$data->getTestId().'</td>';
+    echo '<td>'.$data->getTitle().'</td>';
+    echo '<td>'.$data->getFilename().'</td>';
+    echo '<td>'.$data->getContent().'</td>';
+    echo '<td>'.$data->getStatus().'</td>';
+    echo '<td>'.$data->getCreatedTime().'</td>';
+    echo '<td>'.$data->getUpdateTime().'</td>';
+    ?>
+     <!--  <td><a class="edit" style="cursor:pointer;">Edit</a></td> -->
+      <td><a href='?id2=<?php echo $data->getTestId() ?>'>Delete</a></td>
+    <?php
+     echo '</tr>';
+   }
+ ?>
+ </table>
+ </div>
+ <!--=============================================================================================-->
+
+</div>
+ <script type="text/javascript">
+  $("input[type='text']").on("keyup", function()
+   {
+    if($('#test_id').val() != "" || ($('#title').val() != "" && $('#filename').val() != "" && $('#content').val() != "" && $('#status').val() != ""))
+     {
+      $("#add_button").removeAttr("disabled");
+      $("#add_button").css({"background-color": "rgb(185, 191, 201)"});
+     }
+    else
+     {
+      $("#add_button").attr("disabled", "disabled");
+     }
+   });
+  $('.edit').click(function()
+    {
+     $('#test_id_label').show();
+     $('#test_id').show();
+     $(this).hide();
+     if($('#add_button').val() == "Add")
+      {
+       $('#add_button').val('Save');
+      }
+     else
+      {
+       $('#add_button').val('Add');
+      }
+     $(this).attr("disabled", "disabled");
+     var text = "Set Id to Edit data";
+     $("#heading").html('<center>'+text+'</center>');
+    });
+ </script>
+
+ <!--=================================Script added for second table================================-->
+ <script type="text/javascript">
+  $("input[type='text']").on("keyup", function()
+   {
+    if($('#test_id2').val() != "" || ($('#title2').val() != "" && $('#filename2').val() != "" && $('#content2').val() != "" && $('#status2').val() != ""))
+     {
+      $("#add_button2").removeAttr("disabled");
+      $("#add_button2").css({"background-color": "rgb(185, 191, 201)"});
+     }
+    else
+     {
+      $("#add_button2").attr("disabled", "disabled");
+     }
+   });
+  $('.edit2').click(function()
+    {
+     $('#test_id_label2').show();
+     $('#test_id2').show();
+     $(this).hide();
+     if($('#add_button2').val() == "Add")
+      {
+       $('#add_button2').val('Save');
+      }
+     else
+      {
+       $('#add_button2').val('Add');
+      }
+     $(this).attr("disabled", "disabled");
+     var text = "Set Id to Edit data";
+     $("#heading2").html('<center>'+text+'</center>');
+    });
+ </script>
+ <!--=============================================================================================-->
