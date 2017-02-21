@@ -19,6 +19,7 @@ class Excellence_Test_User_ViewController extends Mage_Core_Controller_Front_Act
             $this->_redirect('*/*/');
          }
         }
+        
 
         /*================================Added for deleting table 2==================================*/
         if( $this->getRequest()->getParam('id2') > 0 ) {

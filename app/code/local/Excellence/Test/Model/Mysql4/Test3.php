@@ -1,3 +1,4 @@
+
 <?php
 class Excellence_Test_Model_Mysql4_Test3 extends Mage_Core_Model_Mysql4_Abstract
 {

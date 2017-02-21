@@ -7,4 +7,5 @@ class Excellence_Test_Model_MySql4_Test2_Collection extends Mage_Core_Model_Mysq
         $this->_init('test/test2');
     }
 }
+
 ?>
