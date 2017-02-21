@@ -47,16 +47,12 @@
         <test_mysql4>
             <class>Excellence_Test_Model_Mysql4</class>
             <entities>
-                <test>
-                    <table>test3</table>  <!-- Actual table name in sql  -->
-                </test>
-                <test2> 
-                    <table>test</table>
-                </test2>
-                <!-- <test4> 
-                    <table>test4</table>
-                </test4> -->
-                
+                <model1>
+                    <table>user</table>  <!-- Actual table name in sql  -->
+                </model1>
+                <model2> 
+                    <table>user_2</table>
+                </model2>
             </entities>
         </test_mysql4>
     </models>

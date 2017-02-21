@@ -1,5 +1,5 @@
 <?php
-class Excellence_Test_User_ViewController extends Mage_Core_Controller_Front_Action
+class Excellence_Test_ViewController extends Mage_Core_Controller_Front_Action
 {
     public function historyAction()
     {
