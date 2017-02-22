@@ -38,28 +38,26 @@ class Excellence_Test_IndexController extends Mage_Core_Controller_Front_Action
         /*=============================================================================================*/
 
       }
- public function SaveAction() 
- {  
-   $postdata = $this->getRequest()->getPost();
-   $id = $_POST['testid'];
-   $title = $_POST['title'];
-   $filename = $_POST['filename'];
-   $content = $_POST['content'];
-   $status = $_POST['status'];
-   $indicator = 0;
-   $model = Mage::getModel('test/test')->getCollection();
-   foreach($model as $data)
-    {
-     $id2 = $data->getTestId();
-     if($id == $id2)
-      {
-       $indicator = 1;
-      }
-    }
-   if($indicator == 1)
+ public function SaveAction() {
+  $id = $this->getRequest()->getParam('testid');
+  $title = $this->getRequest()->getParam('title');
+  $filename = $this->getRequest()->getParam('filename');
+  $content = $this->getRequest()->getParam('content');
+  $status = $this->getRequest()->getParam('status');
+  $fields = $this->getRequest()->getParams();
+  $indicator = 0;
+  $model = Mage::getModel('test/test')->getCollection();
+  foreach($model as $data)
+   {
+    $existing_id = $data->getTestId();
+    if($id == $existing_id)
+     {
+      $indicator = 1;
+     }
+   }
+  if($indicator == 1)
     {
      $model = Mage::getModel('test/test')->load($id);
-     // $model->setData($postdata);
      $model->setTitle($title);
      $model->setFilename($filename);
      $model->setContent($content);
@@ -71,36 +69,35 @@ class Excellence_Test_IndexController extends Mage_Core_Controller_Front_Action
    else
     {
      $model = Mage::getModel("test/test");
-     $model->setData($postdata);
+     $model->setData($fields);
      $model->setCreatedTime(strtotime('now'));
      $model->save();
       $this->_redirect('test/index/index');
     }
- }
+}
 
  /*===================================save action for second table===================================*/
  public function Save2Action() 
  {  
-   $postdata = $this->getRequest()->getPost();
-   $id = $_POST['testid'];
-   $title = $_POST['title'];
-   $filename = $_POST['filename'];
-   $content = $_POST['content'];
-   $status = $_POST['status'];
-   $indicator = 0;
-   $model = Mage::getModel('test/test2')->getCollection();
-   foreach($model as $data)
-    {
-     $id2 = $data->getTestId();
-     if($id == $id2)
-      {
-       $indicator = 1;
-      }
-    }
-   if($indicator == 1)
+  $id = $this->getRequest()->getParam('testid');
+  $title = $this->getRequest()->getParam('title');
+  $filename = $this->getRequest()->getParam('filename');
+  $content = $this->getRequest()->getParam('content');
+  $status = $this->getRequest()->getParam('status');
+  $fields = $this->getRequest()->getParams();
+  $indicator = 0;
+  $model = Mage::getModel('test/test2')->getCollection();
+  foreach($model as $data)
+   {
+    $existing_id = $data->getTestId();
+    if($id == $existing_id)
+     {
+      $indicator = 1;
+     }
+   }
+  if($indicator == 1)
     {
      $model = Mage::getModel('test/test2')->load($id);
-     // $model->setData($postdata);
      $model->setTitle($title);
      $model->setFilename($filename);
      $model->setContent($content);
@@ -112,7 +109,7 @@ class Excellence_Test_IndexController extends Mage_Core_Controller_Front_Action
    else
     {
      $model = Mage::getModel("test/test2");
-     $model->setData($postdata);
+     $model->setData($fields);
      $model->setCreatedTime(strtotime('now'));
      $model->save();
       $this->_redirect('test/index/index');
