@@ -5,5 +5,9 @@
             <block type="test/test" name="test" template="test/test.phtml" />
         </reference>
     </test_user_view_history>
-    
+    <default>
+     <reference name="head">
+      <action method="addItem"><type>skin_js</type><name>js/script.js</name><params/></action>
+     </reference>
+    </default>
 </layout>
