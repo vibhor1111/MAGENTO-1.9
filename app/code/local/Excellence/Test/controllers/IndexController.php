@@ -38,7 +38,7 @@ class Excellence_Test_IndexController extends Mage_Core_Controller_Front_Action
         /*=============================================================================================*/
 
       }
- public function SaveAction() {
+ public function saveAction() {
   $id = $this->getRequest()->getParam('testid');
   $title = $this->getRequest()->getParam('title');
   $filename = $this->getRequest()->getParam('filename');
@@ -77,7 +77,7 @@ class Excellence_Test_IndexController extends Mage_Core_Controller_Front_Action
 }
 
  /*===================================save action for second table===================================*/
- public function Save2Action() 
+ public function save2Action() 
  {  
   $id = $this->getRequest()->getParam('testid');
   $title = $this->getRequest()->getParam('title');
