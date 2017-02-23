@@ -14,7 +14,7 @@
         </colgroup>
 
   <tr>
-   <th>Test_Id</th>
+   <th>User_Id</th>
    <th>FIRST NAME</th>
    <th>LAST NAME</th>
    <th>EMAIL</th>
@@ -25,28 +25,28 @@
    <th>Delete</th>
   </tr>
  <?php
- $model = Mage::getModel('user/user')->getCollection();
+ $user_model = Mage::getModel('user/user')->getCollection();
  
- foreach($model as $data)
+ foreach($user_model as $data)
   {
-    $id = $data->getTestId();
+    $id = $data->getUserId();
     echo '<tr class="first last odd" >';
-    echo '<td class="a-center last"  >'.$data->getTestId().'</td>';
+    echo '<td class="a-center last"  >'.$data->getUserId().'</td>';
     echo '<td  class="a-center last"  >'.$data->getFirstname().'</td>';
     echo '<td class="a-center last"  >'.$data->getLastname().'</td>';
     echo '<td class="a-center last" >'.$data->getEmail().'</td>';
     echo '<td class="a-center last" >'.$data->getDob().'</td>';
-    $model = Mage::getModel('user/address')->getCollection();
-     foreach($model as $data)
+    $address_model = Mage::getModel('user/address')->getCollection();
+     foreach($address_model as $data)
       {
-       $id2 = $data->getTestId();
+       $id2 = $data->getUserId();
        if($id == $id2)
        {
        echo '<td  class="a-center last" >'.$data->getCity().'</td>';
        echo '<td class="a-center last" >'.$data->getPincode().'</td>';
        echo '<td class="a-center last" >'.$data->getContact().'</td>';
        ?>
-     <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?id=<?php echo $data->getTestId() ?>'>Delete</a></td>
+     <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?id=<?php echo $data->getUserId() ?>'>Delete</a></td>
       <?php
 
      }

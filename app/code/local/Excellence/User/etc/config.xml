@@ -51,7 +51,7 @@
                     <table>user</table>  <!-- Actual table name in sql  -->
                 </user>
                 <address> 
-                    <table>user_2</table>
+                    <table>address</table>
                 </address>
             </entities>
         </user_mysql4>
