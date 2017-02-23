@@ -1,10 +1,9 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <br />
-<table class="data-table table-hover" id="table_data" border="">
+ <p>
+  <b>WANT TO ADD SOME MORE DATA </b>
+   <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
+ </p>
+ <table class="data-table table-hover" id="table_data" border="">
   <tr>
    <th>User_Id</th>
    <th>FIRST NAME</th>
@@ -17,35 +16,33 @@
    <th>Delete</th>
   </tr>
  <?php
- $model = Mage::getModel('user/user')->getCollection();
- foreach($model as $data)
-  {
+  $user_model = Mage::getModel('user/user')->getCollection();
+  foreach($user_model as $data)
+   {
     $id = $data->getUserId();
-    echo '<tr class="first last odd" >';
-    echo '<td class="a-center last"  >'.$data->getUserId().'</td>';
-    echo '<td  class="a-center last"  >'.$data->getFirstname().'</td>';
-    echo '<td class="a-center last"  >'.$data->getLastname().'</td>';
-    echo '<td class="a-center last" >'.$data->getEmail().'</td>';
-    echo '<td class="a-center last" >'.$data->getDob().'</td>';
-    $model = Mage::getModel('user/address')->getCollection();
-    foreach($model as $data)
+  ?>
+  <tr class="first last odd">
+   <td class="a-center last"> <?php echo $data->getUserId() ?> </td>
+   <td class="a-center last"> <?php echo $data->getFirstname() ?> </td>
+   <td class="a-center last"> <?php echo $data->getLastname() ?> </td>
+   <td class="a-center last"> <?php echo $data->getEmail() ?> </td>
+   <td class="a-center last"> <?php echo $data->getDob() ?> </td>
+   <?php
+    $address_model = Mage::getModel('user/address')->getCollection();
+    foreach($address_model as $data)
      {
       $id2 = $data->getUserId();
       if($id == $id2)
        {
-        echo '<td  class="a-center last" >'.$data->getCity().'</td>';
-        echo '<td class="a-center last" >'.$data->getPincode().'</td>';
-        echo '<td class="a-center last" >'.$data->getContact().'</td>';
+        ?>
+        <td class="a-center last"> <?php echo $data->getCity(); ?> </td>
+        <td class="a-center last"> <?php echo $data->getPincode(); ?> </td>
+        <td class="a-center last"> <?php echo $data->getContact(); ?> </td>
+        <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserId() ?>'>Delete</a></td>
+        <?php
+       }
+      }
+    }
   ?>
-        <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?id=<?php echo $data->getUserId() ?>'>Delete</a></td>
-  <?php
-        }
-     }
-   }
- ?>
-   <p>
-    <b>WANT TO ADD SOME MORE DATA </b>
-    <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
-   </p>
-  </tr>
- </table>
+ </tr>
+</table>

@@ -1,0 +1,51 @@
+<form role="form" action="<?php echo $this->getUrl('user/index/save'); ?>" method="post">
+   <ul class="form-list">
+     <li>
+          <label for="firstname" class="required">FIRST NAME</label>
+           <div class="input-box">
+             <input type="text" name="firstname" value="" id="firstname" class="input-text">
+       </div>
+    </li>
+      <li>
+          <label for="lastname" class="required">LAST NAME</label>
+           <div class="input-box">
+             <input type="text" name="lastname" value="" id="lastname" class="input-text">
+       </div>
+    </li>
+     <li>
+          <label for="email" class="required">EMAIL</label>
+           <div class="input-box">
+             <input type="text" name="email" value="" id="email" class="input-text">
+       </div>
+    </li>
+     <li>
+          <label for="dob" class="required">DOB</label>
+           <div class="input-box">
+             <input type="date" name="dob" value="" id="dob" class="input-text">
+       </div>
+    </li>
+     <li>
+          <label for="city" class="required">CITY</label>
+           <div class="input-box">
+             <input type="text" name="city" value="" id="city" class="input-text">
+       </div>
+    </li>
+     <li>
+          <label for="pincode" class="required">PINCODE</label>
+           <div class="input-box">
+             <input type="text" name="pincode" value="" id="pincode" class="input-text">
+       </div>
+    </li>
+     <li>
+          <label for="contact" class="required">CONTACT</label>
+           <div class="input-box">
+             <input type="text" name="contact" value="" id="contact" class="input-text">
+       </div>
+    </li>
+   </ul>
+  <button type="submit" class="button" title="Login" name="send" id="send2"><span>ADD</span></button>
+</form>
+<p id="goback_url" >
+   <b>WANT TO GO BACK </b>
+   <a href='<?php echo $this->getUrl('user/index/index'); ?>'>CLICK HERE</a>
+</p>
