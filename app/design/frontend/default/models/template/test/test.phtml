@@ -1,196 +1,65 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+ <table class="data-table table-hover" id="table_data" border="">
+<colgroup><col width="1">
+    <col width="1">
+    <col>
+    <col width="1">
+    <col width="1">
+    <col width="1">
+        </colgroup>
 
-<br />
-
-
-<div id="main-div">
-<div id="left-div">
-<h3 id="heading"><center>Enter all fields to Add data</center></h3>
-<form role="form" action="<?php echo $this->getUrl('test/index/save'); ?>" method="post">
- <div id="form_div">
-
-  <label id="test_id_label" style="display:none;">Test_Id</label>
-  <input id="test_id" type="text" name="testid" style="display:none;" />
-  <br /><br />
-  <label>FIRST NAME</label>
-  <input id="firstname" type="text" name="firstname" />
-  <br /><br />
-  <label>LAST NAME</label>
-  <input id="lastname" type="text" name="lastname" />
-  <br /><br />
-  <label>EMAIL</label>
-  <input id="email" type="text" name="email" />
-  <br /><br />
-  <label>PASSWORD</label>
-  <input id="password" type="text" name="password" />
-  <br /><br />
-  <label>DOB</label>
-  <input id="dob" type="date" name="dob" />
-  <br /><br />
-  <input id="add_button" type="submit" value="Add" disabled="disabled" />
-  <input type="button" class="edit" value="Edit" style="cursor:pointer;" />
- </div>
- <br /><br />
-</form>
- <table border="">
   <tr>
    <th>Test_Id</th>
    <th>FIRST NAME</th>
    <th>LAST NAME</th>
    <th>EMAIL</th>
-   <th>PASSWORD</th>
    <th>DOB</th>
+   <th>CITY</th>
+   <th>PINCODE</th>
+   <th>CONTACT</th>
    <th>Delete</th>
   </tr>
  <?php
- $model = Mage::getModel('test/model1')->getCollection();
+ $model = Mage::getModel('user/user')->getCollection();
+ 
  foreach($model as $data)
   {
-    echo '<tr>';
-    echo '<td>'.$data->getTestId().'</td>';
-    echo '<td>'.$data->getFirstname().'</td>';
-    echo '<td>'.$data->getLastname().'</td>';
-    echo '<td>'.$data->getEmail().'</td>';
-    echo '<td>'.$data->getPassword().'</td>';
-    echo '<td>'.$data->getDob().'</td>';
+    $id = $data->getTestId();
+    echo '<tr class="first last odd" >';
+    echo '<td class="a-center last"  >'.$data->getTestId().'</td>';
+    echo '<td  class="a-center last"  >'.$data->getFirstname().'</td>';
+    echo '<td class="a-center last"  >'.$data->getLastname().'</td>';
+    echo '<td class="a-center last" >'.$data->getEmail().'</td>';
+    echo '<td class="a-center last" >'.$data->getDob().'</td>';
+    $model = Mage::getModel('user/address')->getCollection();
+     foreach($model as $data)
+      {
+       $id2 = $data->getTestId();
+       if($id == $id2)
+       {
+       echo '<td  class="a-center last" >'.$data->getCity().'</td>';
+       echo '<td class="a-center last" >'.$data->getPincode().'</td>';
+       echo '<td class="a-center last" >'.$data->getContact().'</td>';
+       ?>
+     <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?id=<?php echo $data->getTestId() ?>'>Delete</a></td>
+      <?php
 
+     }
+      }
+         }
     ?>
-     <!--  <td><a class="edit" style="cursor:pointer;">Edit</a></td> -->
-      <td><a href='?id=<?php echo $data->getTestId() ?>'>Delete</a></td>
-    <?php
-     echo '</tr>';
-   }
- ?>
- </table>
- </div>
 
- <!--===================================Added second table here===================================-->
- <div id="right-div">
- <h3 id="heading2"><center>Enter all fields to Add data in second table</center></h3>
- <form role="form" action="<?php echo $this->getUrl('test/index/save2'); ?>" method="post">
-  <div id="form_div">
-   <label id="test_id_label2" style="display:none;">Test_Id</label>
-   <input id="test_id2" type="text" name="testid" style="display:none;" />
-   <br /><br />
-   <label>FIRST NAME</label>
-   <input id="firstname_2" type="text" name="firstname" />
-   <br /><br />
-    <label>LAST NAME</label>
-   <input id="lastname_2" type="text" name="lastname" />
-   <br /><br />
-   <label>EMAIL</label>
-   <input id="email_2" type="text" name="email" />
-   <br /><br />
-   <label>PASSWORD</label>
-   <input id="password_2" type="text" name="password" />
-   <br /><br />
-   <label>DOB</label>
-  <input id="dob_2" type="date" name="dob" />
-  <br /><br />
-   <input id="add_button2" type="submit" value="Add" disabled="disabled" />
-   <input type="button" class="edit2" value="Edit" style="cursor:pointer;" />
-  </div>
-  <br /><br />
- </form>
- <table border="">
-  <tr>
-   <th>Test_Id</th>
-   <th>FIRST NAME</th>
-   <th>LAST NAME</th>
-   <th>EMAIL</th>
-   <th>PASSWORD</th>
-   <th>DOB</th>
-   
-   <!-- <th>Edit</th> -->
-   <th>Delete</th>
-  </tr>
- <?php
- $model = Mage::getModel('test/model2')->getCollection();
- foreach($model as $data)
-  {
-    echo '<tr>';
-    echo '<td>'.$data->getTestId().'</td>';
-    echo '<td>'.$data->getFirstname().'</td>';
-    echo '<td>'.$data->getLastname().'</td>';
-    echo '<td>'.$data->getEmail().'</td>';
-    echo '<td>'.$data->getPassword().'</td>';
-    echo '<td>'.$data->getDob().'</td>';
+    <p>
+      <b>WANT TO ADD SOME MORE DATA </b>
+      <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
+    </p>
     
-    ?>
-     <!--  <td><a class="edit" style="cursor:pointer;">Edit</a></td> -->
-      <td><a href='?id2=<?php echo $data->getTestId() ?>'>Delete</a></td>
-    <?php
-     echo '</tr>';
-   }
- ?>
+     </tr>
+
  </table>
  </div>
- <!--=============================================================================================-->
-
-</div>
- <script type="text/javascript">
-  $("input[type='text']").on("keyup", function()
-   {
-    if($('#test_id').val() != "" || ($('#firstname').val() != "" && $('#lastname').val() != "" && $('#email').val() != "" && $('#password').val() != ""))
-     {
-      $("#add_button").removeAttr("disabled");
-      $("#add_button").css({"background-color": "rgb(185, 191, 201)"});
-     }
-    else
-     {
-      $("#add_button").attr("disabled", "disabled");
-     }
-   });
-  $('.edit').click(function()
-    {
-     $('#test_id_label').show();
-     $('#test_id').show();
-     $(this).hide();
-     if($('#add_button').val() == "Add")
-      {
-       $('#add_button').val('Save');
-      }
-     else
-      {
-       $('#add_button').val('Add');
-      }
-     $(this).attr("disabled", "disabled");
-     var text = "Set Id to Edit data";
-     $("#heading").html('<center>'+text+'</center>');
-    });
- </script>
-
- <!--=================================Script added for second table================================-->
- <script type="text/javascript">
-  $("input[type='text']").on("keyup", function()
-   {
-    if($('#test_id2').val() != "" || ($('#firstname_2').val() != "" && $('#lastname_2').val() != "" && $('#email_2').val() != "" && $('#password_2').val() != ""))
-     {
-      $("#add_button2").removeAttr("disabled");
-      $("#add_button2").css({"background-color": "rgb(185, 191, 201)"});
-     }
-    else
-     {
-      $("#add_button2").attr("disabled", "disabled");
-     }
-   });
-  $('.edit2').click(function()
-    {
-     $('#test_id_label2').show();
-     $('#test_id2').show();
-     $(this).hide();
-     if($('#add_button2').val() == "Add")
-      {
-       $('#add_button2').val('Save');
-      }
-     else
-      {
-       $('#add_button2').val('Add');
-      }
-     $(this).attr("disabled", "disabled");
-     var text = "Set Id to Edit data";
-     $("#heading2").html('<center>'+text+'</center>');
-    });
- </script>
- <!--=============================================================================================-->

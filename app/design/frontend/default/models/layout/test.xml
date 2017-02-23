@@ -1,9 +1,22 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
-    <test_user_view_history>
-        <reference name="content">
-            <block type="test/test" name="test" template="test/test.phtml" />
-        </reference>
-    </test_user_view_history>
+    <user_index_index>
+      <reference name="content">
+         <block type="user/user" name="test" template="test/test.phtml" />
+      </reference>
+   </user_index_index>
+
+   <user_form_printform>
+    <reference name="content">
+      <block type="user/user" name="test" template="test/table.phtml"  />
+    </reference>
+    
+</user_form_printform>
+
+  <default>
+     	<reference name="head">
+     		<action method="addItem"><type>skin_js</type><name>js/script.js</name><params/></action>
+     	</reference>
+  </default>
     
 </layout>

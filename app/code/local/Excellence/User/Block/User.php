@@ -1,5 +1,5 @@
 <?php
-class Excellence_Test_Block_Test extends Mage_Core_Block_Template
+class Excellence_User_Block_User extends Mage_Core_Block_Template
 {
     public function getContent()
     {
