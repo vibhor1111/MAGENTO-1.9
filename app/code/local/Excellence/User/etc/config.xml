@@ -19,7 +19,7 @@
         <layout>  <!-- New Section Added -->
             <updates>
                 <user>
-                    <file>test.xml</file> <!-- This is name of the layout file for this module -->
+                    <file>user.xml</file> <!-- This is name of the layout file for this module -->
                 </user>
             </updates>
         </layout>
