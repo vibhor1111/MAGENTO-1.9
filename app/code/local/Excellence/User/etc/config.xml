@@ -19,7 +19,7 @@
         <layout>  <!-- New Section Added -->
             <updates>
                 <user>
-                    <file>test.xml</file> <!-- This is name of the layout file for this module -->
+                    <file>user.xml</file> <!-- This is name of the layout file for this module -->
                 </user>
             </updates>
         </layout>
@@ -57,24 +57,24 @@
         </user_mysql4>
     </models>
     <resources>  <!-- These are resource setting giving access to module, read/write permission on database -->
-        <test_setup>
+        <user_setup>
             <setup>
                 <module>Excellence_User</module>
             </setup>
             <connection>
                 <use>core_setup</use>
             </connection>
-        </test_setup>
-        <test_write>
+        </user_setup>
+        <user_write>
             <connection>
                 <use>core_write</use>
             </connection>
-        </test_write>
-        <test_read>
+        </user_write>
+        <user_read>
             <connection>
                 <use>core_read</use>
             </connection>
-        </test_read>
+        </user_read>
     </resources>
  </global>
  <!--xxxxxxxxxxxxxxxxxxxxxx-->
