@@ -57,24 +57,24 @@
         </user_mysql4>
     </models>
     <resources>  <!-- These are resource setting giving access to module, read/write permission on database -->
-        <user_setup>
+        <test_setup>
             <setup>
                 <module>Excellence_User</module>
             </setup>
             <connection>
                 <use>core_setup</use>
             </connection>
-        </user_setup>
-        <user_write>
+        </test_setup>
+        <test_write>
             <connection>
                 <use>core_write</use>
             </connection>
-        </user_write>
-        <user_read>
+        </test_write>
+        <test_read>
             <connection>
                 <use>core_read</use>
             </connection>
-        </user_read>
+        </test_read>
     </resources>
  </global>
  <!--xxxxxxxxxxxxxxxxxxxxxx-->

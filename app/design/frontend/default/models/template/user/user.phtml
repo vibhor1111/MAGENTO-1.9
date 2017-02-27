@@ -35,13 +35,13 @@
         $address_model = $this->getAddressCollection(); 
           foreach($address_model as $data)
             {
-              $address_table_id = $data->getUserId();
+              $address_table_id = $data->getUserid();
                 if($user_table_id == $address_table_id)
                   {
   ?>
                     <td  class="a-center last" ><?php echo $data->getCity()?> </td>
                     <td  class="a-center last" ><?php echo $data->getPincode()?> </td>
-                    <td  class="a-center last" ><?php echo $data->getContact()?> </td>
+                    <td  class="a-center last" ><?php echo $data->getContacts()?> </td>
                     <td> <a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a> </td>
  <?php
                   }
