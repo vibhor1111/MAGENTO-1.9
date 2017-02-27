@@ -20,7 +20,7 @@
     <th>Delete</th>
   </tr>
  <?php
-    $user_model = Mage::getModel('user/user')->getCollection();
+    $user_model = $this->getUserCollection();
  
       foreach($user_model as $data)
         {
@@ -32,10 +32,10 @@
             <td class="a-center last"  >  <?php echo $data->getFirstname() ?> </td>
             <td class="a-center last"  >  <?php echo $data->getLastname() ?> </td>
             <td class="a-center last"  >  <?php echo $data->getEmail() ?> </td>
-            <td class="a-center last" >'  <?php echo $data->getDob() ?>   </td>
+            <td class="a-center last" >  <?php echo $data->getDob() ?>   </td>
     <?php
 
-      $address_model = Mage::getModel('user/address')->getCollection();
+      $address_model = $this->getAddressCollection(); 
           foreach($address_model as $data)
             {
             $address_table_id = $data->getUserId();
