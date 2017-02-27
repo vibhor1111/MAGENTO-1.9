@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 $installer = $this;  //Getting Installer Class Object In A Variable
 $installer->startSetup();
 $installer->run("
@@ -15,4 +15,4 @@ CREATE TABLE {$this->getTable('test')} (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");
 $installer->endSetup();
-?>
+?> -->

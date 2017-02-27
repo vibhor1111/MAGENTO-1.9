@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+   <user_index_index>
+      <reference name="content">
+         <block type="user/user" name="user" template="user/user.phtml" />
+      </reference>
+   </user_index_index>
+
+   <user_form_printform>
+      <reference name="content">
+        <block type="user/user" name="user" template="user/table.phtml"  />
+      </reference>    
+   </user_form_printform>
+</layout>
