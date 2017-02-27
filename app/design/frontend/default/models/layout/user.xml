@@ -10,10 +10,10 @@
             <block type="user/user" name="user" template="user/table.phtml" /> 
     </reference>
  </user_form_printform>
- <default>
+  <default>
     <reference name="head">
       <action method="addItem"><type>skin_css</type><name>css/bootstrap.min.css</name></action>
       <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>
     </reference>
- </default>
+  </default>
 </layout>
