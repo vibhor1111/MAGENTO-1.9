@@ -1,15 +1,14 @@
 
 <table class="data-table table-hover" id="table_data" border="">
   <colgroup><col width="1">
-      <col width="1">
-      <col>
-      <col width="1">
-      <col width="1">
-      <col width="1">
- </colgroup>
-
-  <tr>
-    <th>USER_Id</th>
+    <col width="1">
+    <col width="1">
+    <col width="1">
+    <col width="1">
+    <col width="1">
+  </colgroup>
+ <tr>
+  <th>USER_Id</th>
     <th>FIRST NAME</th>
     <th>LAST NAME</th>
     <th>EMAIL</th>
@@ -19,48 +18,39 @@
     <th>CONTACT</th>
     <th>Delete</th>
   </tr>
- <?php
-    $user_model = $this->getUserCollection();
  
-      foreach($user_model as $data)
-        {
-            $user_table_id = $data->getUserId();
-      ?>
-
-           <tr class="first last odd" >
+ <?php
+   $user_model = $this->getUserCollection();
+    foreach($user_model as $data)
+      {
+        $user_table_id = $data->getUserId();
+  ?>
+          <tr class="first last odd" >
             <td class="a-center last"  >  <?php echo $data->getUserId() ?>  </td>
             <td class="a-center last"  >  <?php echo $data->getFirstname() ?> </td>
             <td class="a-center last"  >  <?php echo $data->getLastname() ?> </td>
             <td class="a-center last"  >  <?php echo $data->getEmail() ?> </td>
             <td class="a-center last" >  <?php echo $data->getDob() ?>   </td>
-    <?php
-
-      $address_model = $this->getAddressCollection(); 
+ <?php
+        $address_model = $this->getAddressCollection(); 
           foreach($address_model as $data)
             {
-            $address_table_id = $data->getUserId();
-            if($user_table_id == $address_table_id)
-        {
-            ?>
-            <td  class="a-center last" > <?php echo $data->getCity() ?> </td>
-            <td  class="a-center last" > <?php echo $data->getPincode() ?> </td>
-            <td  class="a-center last" > <?php echo $data->getContact() ?> </td>
-          
-          <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a></td>
-     <?php
-
-              }
+              $address_table_id = $data->getUserId();
+                if($user_table_id == $address_table_id)
+                  {
+  ?>
+                    <td  class="a-center last" > <?php echo $data->getCity() ?> </td>
+                    <td  class="a-center last" > <?php echo $data->getPincode() ?> </td>
+                    <td  class="a-center last" > <?php echo $data->getContact() ?> </td>
+                    <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a></td>
+ <?php
+                  }
             }
-          }
-    
-    ?>
-
-    <p>
-      <b>WANT TO ADD SOME MORE DATA </b>
-      <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
-    </p>
-    
-     </tr>
-
- </table>
- </div>
+      }
+  ?>
+            <p>
+              <b>WANT TO ADD SOME MORE DATA </b>
+                <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
+            </p>
+          </tr>
+</table>
