@@ -8,15 +8,15 @@
     <col width="1">
   </colgroup>
  <tr>
-  <th>USER_Id</th>
-    <th>FIRST NAME</th>
-    <th>LAST NAME</th>
-    <th>EMAIL</th>
-    <th>DOB</th>
-    <th>CITY</th>
-    <th>PINCODE</th>
-    <th>CONTACT</th>
-    <th>Delete</th>
+    <th> <?php echo $this->__('USER ID') ?> </th>
+    <th> <?php echo $this->__('FIRST NAME') ?> </th>
+    <th> <?php echo $this->__('LAST NAME') ?> </th>
+    <th> <?php echo $this->__('EMAIL') ?> </th>
+    <th> <?php echo $this->__('DOB') ?> </th>
+    <th> <?php echo $this->__('CITY') ?> </th>
+    <th> <?php echo $this->__('PINCODE') ?> </th>
+    <th> <?php echo $this->__('CONTACT') ?> </th>
+    <th> <?php echo $this->__('Delete') ?> </th>
   </tr>
  
  <?php
@@ -26,11 +26,11 @@
         $user_table_id = $data->getUserId();
   ?>
           <tr class="first last odd" >
-            <td class="a-center last"  >  <?php echo $data->getUserId() ?>  </td>
-            <td class="a-center last"  >  <?php echo $data->getFirstname() ?> </td>
-            <td class="a-center last"  >  <?php echo $data->getLastname() ?> </td>
-            <td class="a-center last"  >  <?php echo $data->getEmail() ?> </td>
-            <td class="a-center last" >  <?php echo $data->getDob() ?>   </td>
+            <td class="a-center last" ><?php echo $data->getUserId()?> </td>
+            <td class="a-center last" ><?php echo $data->getFirstname()?> </td>
+            <td class="a-center last" ><?php echo $data->getLastname()?> </td>
+            <td class="a-center last" ><?php echo $data->getEmail()?> </td>
+            <td class="a-center last" ><?php echo $data->getDob()?> </td>
  <?php
         $address_model = $this->getAddressCollection(); 
           foreach($address_model as $data)
@@ -39,10 +39,10 @@
                 if($user_table_id == $address_table_id)
                   {
   ?>
-                    <td  class="a-center last" > <?php echo $data->getCity() ?> </td>
-                    <td  class="a-center last" > <?php echo $data->getPincode() ?> </td>
-                    <td  class="a-center last" > <?php echo $data->getContact() ?> </td>
-                    <td><a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a></td>
+                    <td  class="a-center last" ><?php echo $data->getCity()?> </td>
+                    <td  class="a-center last" ><?php echo $data->getPincode()?> </td>
+                    <td  class="a-center last" ><?php echo $data->getContact()?> </td>
+                    <td> <a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a> </td>
  <?php
                   }
             }
