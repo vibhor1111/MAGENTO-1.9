@@ -9,6 +9,7 @@ class Excellence_User_IndexController extends Mage_Core_Controller_Front_Action
    $user_id = $user_model->getUserId();
    $address_model = Mage::getModel("user/address");
    $address_model->saveUser($fields, $user_id); //calling saveUser() in address model for save operation in address table
+   Mage::getSingleton('core/session')->addSuccess("Your data has been successfully added");
    $this->_redirect('*/*/index');
   }
  public function deleteAction()
@@ -18,6 +19,7 @@ class Excellence_User_IndexController extends Mage_Core_Controller_Front_Action
    $fields = $this->getRequest()->getParams();
    $address_model = Mage::getModel('user/address');
    $address_model->deleteUser($this->getRequest()->getParam('user_id')); //calling deleteUser() in address model for delete operation in address table
+   Mage::getSingleton('core/session')->addNotice("Your data has been deleted");
    $this->_redirect('*/*/index');
   }
  public function indexAction()

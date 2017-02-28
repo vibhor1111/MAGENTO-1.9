@@ -7,18 +7,19 @@
     <col width="1">
     <col width="1">
   </colgroup>
- <tr>
-    <th> <?php echo $this->__('USER ID') ?> </th>
-    <th> <?php echo $this->__('FIRST NAME') ?> </th>
-    <th> <?php echo $this->__('LAST NAME') ?> </th>
-    <th> <?php echo $this->__('EMAIL') ?> </th>
-    <th> <?php echo $this->__('DOB') ?> </th>
-    <th> <?php echo $this->__('CITY') ?> </th>
-    <th> <?php echo $this->__('PINCODE') ?> </th>
-    <th> <?php echo $this->__('CONTACT') ?> </th>
-    <th> <?php echo $this->__('Delete') ?> </th>
-  </tr>
- 
+  <thead>
+   <tr class="first last" >   
+    <th rowspan="1" ><span class="nobr"><?php echo $this->__('USER ID') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('FIRST NAME') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('LAST NAME') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('EMAIL') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('DOB') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('CITY') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('PINCODE') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('CONTACT') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('Delete') ?></span> </th>
+   </tr>
+  </thead> 
  <?php
    $user_model = $this->getUserCollection();
     foreach($user_model as $data)
