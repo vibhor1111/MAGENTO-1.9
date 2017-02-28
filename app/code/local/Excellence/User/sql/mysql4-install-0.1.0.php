@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
 $installer = $this;  //Getting Installer Class Object In A Variable
 $installer->startSetup();
 $installer->run("
--- DROP TABLE IF EXISTS {$this->getTable('test3')};
-CREATE TABLE {$this->getTable('test3')} (
+-- DROP TABLE IF EXISTS {$this->getTable('test')};
+CREATE TABLE {$this->getTable('test')} (
   `test_id` int(11) unsigned NOT NULL auto_increment,
   `title` varchar(255) NOT NULL default '',
   `filename` varchar(255) NOT NULL default '',
@@ -14,4 +14,5 @@ CREATE TABLE {$this->getTable('test3')} (
   PRIMARY KEY (`test_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ");
-?>
+$installer->endSetup();
+?> -->
