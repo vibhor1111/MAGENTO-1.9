@@ -27,13 +27,13 @@
     foreach($user_model as $data)
       {
         $user_table_id = $data->getUserId();
-  ?>
+  ?>     <tbody>
           <tr class="first last odd" >
-            <td class="a-center last" ><?php echo $data->getUserId()?> </td>
-            <td class="a-center last" ><?php echo $data->getFirstname()?> </td>
-            <td class="a-center last" ><?php echo $data->getLastname()?> </td>
-            <td class="a-center last" ><?php echo $data->getEmail()?> </td>
-            <td class="a-center last" ><?php echo $data->getDob()?> </td>
+            <td class="a-center" ><?php echo $data->getUserId()?> </td>
+            <td class="a-center" ><?php echo $data->getFirstname()?> </td>
+            <td class="a-center" ><?php echo $data->getLastname()?> </td>
+            <td class="a-center" ><?php echo $data->getEmail()?> </td>
+            <td class="a-center" ><?php echo $data->getDob()?> </td>
  <?php
         $address_model = $this->getAddressCollection(); 
           foreach($address_model as $data)
@@ -42,18 +42,17 @@
                 if($user_table_id == $address_table_id)
                   {
   ?>
-                    <td  class="a-center last" ><?php echo $data->getCity()?> </td>
-                    <td  class="a-center last" ><?php echo $data->getPincode()?> </td>
-                    <td  class="a-center last" ><?php echo $data->getContacts()?> </td>
+                    <td  class="a-center" ><?php echo $data->getCity()?> </td>
+                    <td  class="a-center" ><?php echo $data->getPincode()?> </td>
+                    <td  class="a-center" ><?php echo $data->getContacts()?> </td>
                     <td> <a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a> </td>
  <?php
                   }
             }
       }
   ?>
-            <p>
-              <b>WANT TO ADD SOME MORE DATA </b>
-                <a href='<?php echo $this->getUrl("user/form/printform"); ?>'>CLICK HERE</a>
-            </p>
+                <button class="button" id="button" ><span id="button_span" ><span id="button_span" ><a href='<?php echo $this->getUrl("user/form/printform"); ?>'>ADD MORE DATA</a></span></span></button> 
           </tr>
+          </tbody>
+          
 </table>
