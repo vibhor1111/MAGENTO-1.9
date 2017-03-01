@@ -1,14 +1,23 @@
 
-<table class="data-table cart-table" id="table_data" border="">
-  <colgroup><col width="1">
-    <col width="1">
-    <col width="1">
-    <col width="1">
-    <col width="1">
-    <col width="1">
-  </colgroup>
-  <thead>
-   <tr class="first last" >
+<?php
+
+   echo $this->getMessagesBlock()->getGroupedHtml() 
+ ?>
+
+<?php 
+  $collection = $this->getCollection(); ?>    
+  <?php echo $this->getToolbarHtml(); ?>
+    <?php if($collection->getSize()): ?>
+    <?php if($this->getMode() == 'list'){ ?>
+    <table class="data-table" id="table_data">
+    <col width="1" />
+    <col width="1" />
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr class="first last" >
    
     <th rowspan="1" ><span class="nobr"> <?php echo $this->__('USER ID') ?></span> </th>
     <th rowspan="1" ><span class="nobr"> <?php echo $this->__('FIRST NAME') ?></span> </th>
@@ -19,17 +28,13 @@
     <th rowspan="1" ><span class="nobr"> <?php echo $this->__('PINCODE') ?></span> </th>
     <th rowspan="1" ><span class="nobr"> <?php echo $this->__('CONTACT') ?></span> </th>
     <th rowspan="1" ><span class="nobr"> <?php echo $this->__('Delete') ?></span> </th>
-  </tr>
-  </thead>
- 
- <?php
-   $user_model = $this->getUserCollection();
-    foreach($user_model as $data)
-      {
-        $user_table_id = $data->getUserId();
-  ?>     <tbody>
-          <tr class="first last odd" >
-            <td class="a-center" ><?php echo $data->getUserId()?> </td>
+    </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($collection as $data): ?>
+        <tr class="first last odd" >
+            <td class="a-center" ><?php echo $user_table_id = $data->getUserId()?> </td>
             <td class="a-center" ><?php echo $data->getFirstname()?> </td>
             <td class="a-center" ><?php echo $data->getLastname()?> </td>
             <td class="a-center" ><?php echo $data->getEmail()?> </td>
@@ -49,9 +54,15 @@
  <?php
                   }
             }
-      }
- ?>
-               <button class="button" id="button" ><span id="button_span" ><span id="button_span" ><a href='<?php echo $this->getUrl("user/form/printform"); ?>'>ADD MORE DATA</a></span></span></button>
-         </tr>
-       </tbody>
+      
+  ?>
+  <?php endforeach; ?>
+                <button class="button" id="button" ><span id="button_span" ><span id="button_span" ><a href='<?php echo $this->getUrl("user/form/printform"); ?>'>ADD MORE DATA</a></span></span></button> 
+          </tr>
+        
+    </tbody>
 </table>
+<?php } 
+
+?>
+<?php endif ?>
