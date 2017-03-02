@@ -8,7 +8,7 @@
   $collection = $this->getCollection(); ?>    
   <?php echo $this->getToolbarHtml(); ?>
     <?php if($collection->getSize()): ?>
-    <?php if($this->getMode() == 'list'){ ?>
+    <?php if($this->getMode() == 'list'||$this->getMode() == 'grid'){ ?>
     <table class="data-table" id="table_data">
     <col width="1" />
     <col width="1" />
@@ -66,3 +66,5 @@
 
 ?>
 <?php endif ?>
+<br>  
+ <?php echo $this->getPagerHtml(); ?>

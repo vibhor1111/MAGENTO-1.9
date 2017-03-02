@@ -11,6 +11,10 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
+        $pager = $this->getLayout()->createBlock('page/html_pager', 'custom.pager');
+        $pager->setAvailableLimit(array(5=>5,10=>10,20=>20,'all'=>'all'));
+        $pager->setCollection($this->getCollection());
+        $this->setChild('pager', $pager);
         $toolbar = $this->getToolbarBlock();
         $collection = $this->getCollection();
        	if ($orders = $this->getAvailableOrders()) {
@@ -45,7 +49,10 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
     {
         return $this->getChild('toolbar')->getCurrentMode();
     }
- 
+    public function getPagerHtml()
+    {
+        return $this->getChildHtml('pager');
+    }
     public function getToolbarHtml()
     {
         return $this->getChildHtml('toolbar');
