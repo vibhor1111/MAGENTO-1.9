@@ -1,7 +1,18 @@
+<div id="searchdiv" style="float:right;">
+ <form id="search_rows" action="<?php echo $this->getUrl('user/search/search'); ?>" method="get">
+    <div id="search_div">
+        <label for="search">Search:</label>
+        <input id="search" type="text" name="q" class="input-text" maxlength="128" autocomplete="off">
+        <button type="submit" title="Search" class="button"><span><span>Search</span></span></button>
+    </div>
+ </form>
+</div>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <?php $collection = $this->getCollection(); ?>
+<?php echo $this->getToolbarHtml(); ?>   
 <?php if($collection->getSize()): ?>
- <table class="data-table table-hover" id="table_data" border="">
+<?php if($this->getMode() == 'list'||$this->getMode() == 'grid'){ ?>
+  <table class="data-table table-hover" id="table_data" border="">
   <colgroup><col width="1">
     <col width="1">
     <col width="1">
@@ -23,33 +34,36 @@
   </tr>
   </thead> 
   <tbody>
-   <button class="button" id="button" ><span id="button_span" ><span id="button_span" ><a href='<?php echo $this->getUrl("user/form/printform"); ?>'>ADD MORE DATA</a></span></span></button>
-        <?php foreach ($collection as $_obj): ?>
-            <tr>
-               <td class="a-center" ><?php echo $user_table_id = $_obj->getUserId()?> </td>
-               <td class="a-center" ><?php echo $_obj->getFirstname()?> </td>
-               <td class="a-center" ><?php echo $_obj->getLastname()?> </td>
-               <td class="a-center" ><?php echo $_obj->getEmail()?> </td>
-               <td class="a-center" ><?php echo $_obj->getDob()?> </td>
-               <?php
-                $address_model = $this->getAddressCollection(); 
-                foreach($address_model as $data)
+   <?php $_odd = ''; ?>
+        <?php foreach ($collection as $data): ?>
+        <tr class="first last odd" >
+            <td class="a-center" ><?php echo $user_table_id = $data->getUserId()?> </td>
+            <td class="a-center" ><?php echo $data->getFirstname()?> </td>
+            <td class="a-center" ><?php echo $data->getLastname()?> </td>
+            <td class="a-center" ><?php echo $data->getEmail()?> </td>
+            <td class="a-center" ><?php echo $data->getDob()?> </td>
+            <?php
+               $address_model = $this->getAddressCollection(); 
+               foreach($address_model as $data)
                  {
                   $address_table_id = $data->getUserid();
                   if($user_table_id == $address_table_id)
                    {
+                   ?>
+                     <td  class="a-center" ><?php echo $data->getCity()?> </td>
+                     <td  class="a-center" ><?php echo $data->getPincode()?> </td>
+                     <td  class="a-center" ><?php echo $data->getContacts()?> </td>
+                     <td> <a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a> </td>
+                    <?php
+                    }
+                 }
+      
   ?>
-                    <td  class="a-center" ><?php echo $data->getCity()?> </td>
-                    <td  class="a-center" ><?php echo $data->getPincode()?> </td>
-                    <td  class="a-center" ><?php echo $data->getContacts()?> </td>
-                    <td> <a href='<?php echo $this->getUrl("user/index/delete"); ?>?user_id=<?php echo $data->getUserid() ?>'>Delete</a> </td>
- <?php
-                  }
-            }?>
-            </tr>
-        <?php endforeach; ?>
+  <?php endforeach; ?>
+                <button class="button" id="button" ><span id="button_span" ><span id="button_span" ><a href='<?php echo $this->getUrl("user/form/printform"); ?>'>ADD MORE DATA</a></span></span></button> 
+          </tr>
     </tbody>          
 </table>
 <?php endif ?>
-<br /><br />
+<br />
 <?php echo $this->getPagerHtml(); ?>

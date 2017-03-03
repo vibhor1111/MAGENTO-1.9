@@ -25,4 +25,9 @@ class Excellence_User_Model_Address extends Mage_Core_Model_Abstract
       $this->setUserid($user_id); //common user_id set in address table for further sql operations
       $this->save(); //data saved in address table
      }
+    public function addressUser($fields)
+     {
+      $searched_data = $this->getResource()->addressUser($fields);
+      return $searched_data;
+     }
 }
