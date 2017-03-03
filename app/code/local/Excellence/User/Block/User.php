@@ -30,7 +30,7 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
         $this->getCollection()->load();
         return $this;
     }
-    public function getDefaultDirection() {
+        public function getDefaultDirection() {
         return 'asc';
         }
     
@@ -49,17 +49,21 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
         {
         return $this->getChild('toolbar')->getCurrentMode();
         }   
-    public function getPagerHtml()
-    {
+        public function getPagerHtml()
+        {
         return $this->getChildHtml('pager');
-    }
-    public function getUserCollection()
-	{
+        }
+        public function getToolbarHtml()
+        {
+        return $this->getChildHtml('toolbar');
+        }
+        public function getUserCollection()
+	    {
 		return Mage::getModel('user/user')->getCollection();
-	}
-	public function getAddressCollection()
-	{
+	    }
+	    public function getAddressCollection()
+	    {
 		return Mage::getModel('user/address')->getCollection();
-	}
+	    }
 }
 ?>
