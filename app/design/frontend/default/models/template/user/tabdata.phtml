@@ -1,0 +1,54 @@
+ 
+ <table class="data-table">
+   <thead>
+       <tr class="first last" >
+             <th rowspan="1" ><span class="nobr"> <?php echo $this->__('Data Selected From Multiselect Field') ?></span> </th>
+       </tr>
+    </thead>
+      <tbody>
+          <tr>
+             <td>
+     <?php
+            $view_style = $this->getmultiselectCollection();
+               echo $view_style;
+    ?>
+          </td>
+        </tr>
+     </tbody>
+  </table>
+
+  <table class="data-table">
+   <thead>
+       <tr class="first last" >
+             <th rowspan="1" ><span class="nobr"> <?php echo $this->__('Data Selected From Text Field') ?></span> </th>
+       </tr>
+    </thead>
+      <tbody>
+          <tr>
+             <td>
+     <?php
+            $patient = $this->gettextdataCollection();
+               echo $patient;
+    ?>
+          </td>
+        </tr>
+     </tbody>
+  </table>
+
+  <table class="data-table">
+   <thead>
+       <tr class="first last" >
+             <th rowspan="1" ><span class="nobr"> <?php echo $this->__('Data Selected From Dropdown Field') ?></span> </th>
+       </tr>
+    </thead>
+      <tbody>
+          <tr>
+             <td>
+     <?php
+            $slider = $this->getdropdowndataCollection();
+               echo $slider;
+    ?>
+          </td>
+        </tr>
+     </tbody>
+  </table>

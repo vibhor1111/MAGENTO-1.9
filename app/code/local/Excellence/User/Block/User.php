@@ -65,5 +65,19 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
 	    {
 		return Mage::getModel('user/address')->getCollection();
 	    }
+        public function getmultiselectCollection()
+        {
+        return Mage::getStoreConfig('usersection/user/view_style',Mage::app()->getStore());
+        }
+        public function gettextdataCollection()
+        {
+        return Mage::getStoreConfig('usersection/user/patient',Mage::app()->getStore());
+        }
+        public function getdropdowndataCollection()
+        {
+        return Mage::getStoreConfig('usersection/user/slider',Mage::app()->getStore());
+        }
+
+    
 }
 ?>
