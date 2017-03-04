@@ -15,4 +15,9 @@ class Excellence_User_Model_User extends Mage_Core_Model_Abstract
       $this->setData($fields); //data set in user table
       $this->save(); //data saved in user table
      }
+    public function searchUser($fields)
+     {
+      $searched_data = $this->getResource()->searchUser($fields);
+      return $searched_data;
+     }
 }

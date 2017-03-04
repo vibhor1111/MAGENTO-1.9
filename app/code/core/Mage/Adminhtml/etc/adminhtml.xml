@@ -169,6 +169,10 @@
                                 <title>Configuration</title>
                                 <sort_order>20</sort_order>
                                 <children>
+                                     <usersection translate="title" module="user">  
+                                                <title>User Tab ACL</title>  
+                                                <sort_order>99</sort_order>
+                                            </usersection>
                                     <general translate="title">
                                         <title>General Section</title>
                                         <sort_order>20</sort_order>
