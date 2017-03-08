@@ -25,7 +25,7 @@
      
    </user_tabdata_tabdata>
 
-   <user_event_handler>
+    <user_event_handler>
       <reference name="content">
          <block type="user/user" name="user" template="user/event.phtml" />
       </reference>

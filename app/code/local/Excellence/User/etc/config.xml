@@ -36,44 +36,43 @@
             </user>
         </helpers>
     </global>
-
     <global>
-       <models>
-           <Excellence_User>
-               <class>Excellence_User_Model</class>
-           </Excellence_User>
-       </models>
-       <events>
-           <customer_login>
-               <observers>
-                   <Excellence_User>
-                       <type>singleton</type>
-                       <class>Excellence_User/observer</class>
-                       <method>customerLogin</method>
-                   </Excellence_User>
-               </observers>
-           </customer_login>
-       </events>
-   </global>
-   <global>
-       <models>
-           <Excellence_User>
-               <class>Excellence_User_Model</class>
-           </Excellence_User>
-       </models>
-       <events>
-           <customer_logout>
-               <observers>
-                   <Excellence_User>
-                       <type>singleton</type>
-                       <class>Excellence_User/observer</class>
-                       <method>customerLogout</method>
-                   </Excellence_User>
-               </observers>
-           </customer_logout>
-       </events>
-   </global>
-
+        <models>
+            <Excellence_User>
+                <class>Excellence_User_Model</class>
+            </Excellence_User>
+        </models>
+        <events>
+            <customer_login>
+                <observers>
+                    <Excellence_User>
+                        <type>singleton</type>
+                        <class>Excellence_User/observer</class>
+                        <method>customerLogin</method>
+                    </Excellence_User>
+                </observers>
+            </customer_login>
+        </events>
+    </global>
+    <global>
+        <models>
+            <Excellence_User>
+                <class>Excellence_User_Model</class>
+            </Excellence_User>
+        </models>
+        <events>
+            <customer_logout>
+                <observers>
+                    <Excellence_User>
+                        <type>singleton</type>
+                        <class>Excellence_User/observer</class>
+                        <method>customerLogout</method>
+                    </Excellence_User>
+                </observers>
+            </customer_logout>
+        </events>
+    </global>
+  
    <!--Added for database-->
    <global>
     <models>
