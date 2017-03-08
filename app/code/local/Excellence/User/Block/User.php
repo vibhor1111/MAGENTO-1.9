@@ -77,6 +77,10 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
         {
         return Mage::getStoreConfig('usersection/user/slider',Mage::app()->getStore());
         }
+        public function getObserverCollection()
+        {
+           return Mage::getModel("user/observer")->getCollection();
+        }
 
     
 }
