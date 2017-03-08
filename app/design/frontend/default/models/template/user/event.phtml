@@ -1,0 +1,40 @@
+<table class="data-table" id="table_data">
+  <col width="1" />
+  <col width="1" />
+  <col width="1" />
+  <col width="1" />
+  <col width="1" />
+  <col width="1" />
+  <thead>
+   <tr class="first last" >
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('ID') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('NAME') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('EMAIL') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('LOGIN DATE') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('LOGIN TIME') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('LOGOUT DATE') ?></span> </th>
+    <th rowspan="1" ><span class="nobr"> <?php echo $this->__('LOGOUT TIME') ?></span> </th>
+   </tr>
+  </thead>
+  <tbody>
+   <?php
+    $observer_model = $this->getObserverCollection();
+    foreach($observer_model as $data)
+     {
+   ?>
+   <tr class="first last odd" >
+    <td class="a-center" ><?php echo $data->getObserverId()?> </td>
+    <td class="a-center" ><?php echo $data->getName()?> </td>
+    <td class="a-center" ><?php echo $data->getEmail()?> </td>
+    <td class="a-center" ><?php echo $data->getLoginDate()?> </td>
+    <td class="a-center" ><?php echo $data->getLoginTime()?> </td>
+    <td class="a-center" ><?php echo $data->getLogoutDate()?> </td>
+    <td class="a-center" ><?php echo $data->getLogoutTime()?> </td>
+   </tr>
+   <?php
+     }
+   ?>     
+  </tbody>
+</table>
+
+

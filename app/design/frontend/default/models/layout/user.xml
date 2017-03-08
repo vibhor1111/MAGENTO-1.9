@@ -11,4 +11,21 @@
         <block type="user/user" name="user" template="user/table.phtml"  />
       </reference>    
    </user_form_printform>
+
+   <user_search_search>
+     <reference name="content">
+       <block type="user/user" name="user" template="user/search.phtml"  />
+     </reference>    
+   </user_search_search>
+   <user_tabdata_tabdata>
+     <reference name="content">
+         <block type="user/user" name="user" template="user/tabdata.phtml" />
+     </reference>
+   </user_tabdata_tabdata>
+   <user_event_handler>
+     <reference name="content">
+         <block type="user/user" name="user" template="user/event.phtml" />
+     </reference>
+   </user_event_handler>
+
 </layout>
