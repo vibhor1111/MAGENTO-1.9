@@ -1,7 +1,7 @@
 <?php
 class Excellence_User_Block_User extends Mage_Core_Block_Template
-{    
-	  public function __construct()
+{
+    public function __construct()
     {
         parent::__construct();
         $collection = Mage::getModel('user/user')->getCollection();
@@ -16,7 +16,7 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
         $this->setChild('pager', $pager);
         $toolbar = $this->getToolbarBlock();
         $collection = $this->getCollection();
-       	if ($orders = $this->getAvailableOrders()) {
+        if ($orders = $this->getAvailableOrders()) {
             $toolbar->setAvailableOrders($orders);
         }
         if ($sort = $this->getSortBy()) {
@@ -29,60 +29,58 @@ class Excellence_User_Block_User extends Mage_Core_Block_Template
         $this->setChild('toolbar', $toolbar);
         $this->getCollection()->load();
         return $this;
-	}
-        public function getDefaultDirection()
-      {
-          return 'asc';
-      }
-        public function getAvailableOrders()
-      {
-          return array('user_id'=>'ID','firstname'=>'firstname','lastname'=>'lastname','DOB'=>'dob');
-      }
-        public function getSortBy()
-      {
-          return 'user_id';
-      }
+    }
+        public function getDefaultDirection() {
+        return 'asc';
+        }
+    
+        public function getAvailableOrders(){
+        return array('user_id'=>'ID','firstname'=>'firstname','lastname'=>'lastname','DOB'=>'dob');
+        }
+        public function getSortBy(){
+        return 'user_id';
+        }
         public function getToolbarBlock()
-      {
-          $block = $this->getLayout()->createBlock('user/toolbar', microtime());
-          return $block;
-      }
+        {
+        $block = $this->getLayout()->createBlock('user/toolbar', microtime());
+        return $block;
+        }
         public function getMode()
-      {
-          return $this->getChild('toolbar')->getCurrentMode();
-      }
+        {
+        return $this->getChild('toolbar')->getCurrentMode();
+        }   
         public function getPagerHtml()
-      {
-          return $this->getChildHtml('pager');
-      }
+        {
+        return $this->getChildHtml('pager');
+        }
         public function getToolbarHtml()
-      {
-          return $this->getChildHtml('toolbar');
-      }
+        {
+        return $this->getChildHtml('toolbar');
+        }
         public function getUserCollection()
-	    {
-		      return Mage::getModel('user/user')->getCollection();
-	    }
-    	  public function getAddressCollection()
-	    {
-		      return Mage::getModel('user/address')->getCollection();
-	    }
+	      {
+		    return Mage::getModel('user/user')->getCollection();
+	      }
+	      public function getAddressCollection()
+	      {
+		    return Mage::getModel('user/address')->getCollection();
+	      }
         public function getmultiselectCollection()
-      {
-          return Mage::getStoreConfig('usersection/user/view_style',Mage::app()->getStore());
-      }
+        {
+        return Mage::getStoreConfig('usersection/user/view_style',Mage::app()->getStore());
+        }
         public function gettextdataCollection()
-      {
-          return Mage::getStoreConfig('usersection/user/patient',Mage::app()->getStore());
-      }
+        {
+        return Mage::getStoreConfig('usersection/user/patient',Mage::app()->getStore());
+        }
         public function getdropdowndataCollection()
-      {
-          return Mage::getStoreConfig('usersection/user/slider',Mage::app()->getStore());
-      }
+        {
+        return Mage::getStoreConfig('usersection/user/slider',Mage::app()->getStore());
+        }
         public function getObserverCollection()
-      {
-          return Mage::getModel("user/observer")->getCollection();
-      }
-
+        {
+           return Mage::getModel("user/observer")->getCollection();
+        }
+    
 }
 ?>

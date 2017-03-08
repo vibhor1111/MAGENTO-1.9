@@ -16,6 +16,7 @@
 <?php 
   $collection = $this->getCollection(); ?>    
   <?php echo $this->getToolbarHtml(); ?>
+
     <?php if($collection->getSize()): ?>
     <?php if($this->getMode() == 'list'||$this->getMode() == 'grid'){ ?>
     <table class="data-table" id="table_data">
@@ -75,5 +76,5 @@
 
 ?>
 <?php endif ?>
-<br>  
+ <br>  
  <?php echo $this->getPagerHtml(); ?>

@@ -169,8 +169,8 @@
                                 <title>Configuration</title>
                                 <sort_order>20</sort_order>
                                 <children>
-                                     <usersection translate="title" module="user">  
-                                                <title>User Tab ACL</title>  
+                                    <usersection translate="title" module="user">  <!-- This is name of the section created by us -->
+                                                <title>User Tab ACL</title>  <!-- Title as shown in User->Roles->Permissions Window -->
                                                 <sort_order>99</sort_order>
                                             </usersection>
                                     <general translate="title">

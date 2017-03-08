@@ -5,5 +5,5 @@ class Excellence_User_Model_Mysql4_Observer extends Mage_Core_Model_Mysql4_Abstr
     {   
         $this->_init('user/observer','observer_id');
     }
-    
+
 }

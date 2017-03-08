@@ -36,8 +36,7 @@
             </user>
         </helpers>
     </global>
-     <!--Added for Observer-->
-       <global>
+    <global>
         <models>
             <Excellence_User>
                 <class>Excellence_User_Model</class>
@@ -73,7 +72,7 @@
             </customer_logout>
         </events>
     </global>
-
+  
    <!--Added for database-->
    <global>
     <models>
@@ -90,7 +89,7 @@
                 <address> 
                     <table>address</table>
                 </address>
-                 <observer>
+                <observer>
                     <table>login_user</table>
                 </observer>
             </entities>
