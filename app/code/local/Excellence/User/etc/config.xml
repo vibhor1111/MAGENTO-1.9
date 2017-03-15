@@ -47,7 +47,7 @@
                 <observers>
                     <Excellence_User>
                         <type>singleton</type>
-                        <class>Excellence_User/observer</class>
+                        <class>Excellence_User/LogindetailsObserver</class>
                         <method>customerLogin</method>
                     </Excellence_User>
                 </observers>
@@ -65,7 +65,7 @@
                 <observers>
                     <Excellence_User>
                         <type>singleton</type>
-                        <class>Excellence_User/observer</class>
+                        <class>Excellence_User/LogindetailsObserver</class>
                         <method>customerLogout</method>
                     </Excellence_User>
                 </observers>
@@ -83,7 +83,7 @@
                <observers>
                    <Excellence_User>
                        <type>singleton</type>
-                       <class>Excellence_User/observer</class>
+                       <class>Excellence_User/Customerobserver</class>
                        <method>customOrderSave</method>
                    </Excellence_User>
                </observers>
@@ -107,12 +107,12 @@
                 <address> 
                     <table>address</table>
                 </address>
-                <observer>
+                <logindetails>
                     <table>login_user</table>
-                </observer>
-                <observer2>
+                </logindetails>
+                <customerdetails>
                     <table>order_details</table>  <!-- Actual table name in sql  -->
-                </observer2>
+                </customerdetails>
             </entities>
         </user_mysql4>
     </models>

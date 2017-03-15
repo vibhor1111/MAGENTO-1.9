@@ -1,11 +1,6 @@
 <?php
- class Excellence_User_Model_Observer2 extends Mage_Core_Model_Abstract
+ class Excellence_User_Model_Customerobserver
   {
-    public function _construct()
-     {
-        parent::_construct();
-        $this->_init('user/observer2');
-     }
     public function customOrderSave($observer)
      {
       $order = $observer->getEvent()->getOrder();
@@ -20,16 +15,18 @@
       $zip = $shippingAddress->getPostcode();
       $region = $shippingAddress->getRegion();
       $address = implode(" ",$street);
-      $order_date = Date("d/m/y");
+      $order_date = Mage::getModel('core/date')->gmtDate('Y-m-d H:i:s');
       foreach ($ordered_items as $item)
        {
         $product_id = $item->getProductId();
+        $product_price = $item->getPrice();
         $product_tax = $item->getTax();
         $product_name = $item->getName();
         $orderedQty = $item->getQtyOrdered();
+        $total_price = $orderedQty*$product_price;
        }
-      $observer_model = Mage::getModel("user/observer2");
-      $observer_model->setName($customer_name)->setEmail($customer_email)->setProduct($product_name)->setStreet($address)->setCity($city)->setZip($zip)->setQuantity($orderedQty)->setOrderDate($order_date)->save();
+       $customer_model = Mage::getModel("user/customerdetails");
+       $customer_model->save_customer_details($customer_name, $customer_email, $product_name, $address, $city, $zip, $orderedQty, $total_price, $order_date); //passing parameters to the function of customerdetails model to save data in a table
     }
  }
 ?>
