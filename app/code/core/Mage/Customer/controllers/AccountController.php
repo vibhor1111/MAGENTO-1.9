@@ -153,6 +153,21 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
 
         if ($this->getRequest()->isPost()) {
             $login = $this->getRequest()->getPost('login');
+
+             //phone number condition 
+                if (strpos($login['username'], '@') === false){
+                    Mage::log('Customer has entered a phone number ');
+                    $customer = Mage::getModel('customer/customer')
+                        ->getCollection()
+                        ->addAttributeToSelect('phone_number')
+                        ->addAttributeToFilter('phone_number', $login['username'])
+                        ->getFirstItem();
+                        if($login['username'] == $customer->getPhoneNumber()){
+                          $login['username'] = $customer->getEmail();
+                        }
+                }
+                //end phone number condition
+
             if (!empty($login['username']) && !empty($login['password'])) {
                 try {
                     $session->login($login['username'], $login['password']);
